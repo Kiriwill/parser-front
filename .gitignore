@@ -25,3 +25,4 @@ yarn-error.log*
 # OThers
 maketree.js
 graph_bkp.js
+.vscode
