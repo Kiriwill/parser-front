@@ -3,155 +3,72 @@ import ReactDom from 'react-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Search from './search';
 import Sobre from './sobre'
-import Graph from './Graph'
+import View from './view'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class App extends React.Component {
-    render(){
-        const orgChart = 	{
-          "class": "IP",
-          "value": "",
-          "children": [
-            {
-              "class": "DP",
-              "value": "",
-              "children": [
-                {
-                  "class": "D",
-                  "value": "o",
-                  "children": null
-                },
-                {
-                  "class": "NP",
-                  "value": "",
-                  "children": [
-                    {
-                      "class": "Nl",
-                      "value": "",
-                      "children": [
-                        {
-                          "class": "AP",
-                          "value": "",
-                          "children": [
-                            {
-                              "class": "Al",
-                              "value": "",
-                              "children": [
-                                {
-                                  "class": "A",
-                                  "value": "rato",
-                                  "children": null
-                                },
-                                {
-                                  "class": "All",
-                                  "value": "",
-                                  "children": null
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "class": "Nl",
-                          "value": "",
-                          "children": [
-                            {
-                              "class": "N",
-                              "value": "amarelo",
-                              "children": null
-                            },
-                            {
-                              "class": "Nll",
-                              "value": "",
-                              "children": null
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "class": "Il",
-              "value": "",
-              "children": [
-                {
-                  "class": "Ill",
-                  "value": "",
-                  "children": null
-                },
-                {
-                  "class": "VP",
-                  "value": "",
-                  "children": [
-                    {
-                      "class": "Vl",
-                      "value": "",
-                      "children": [
-                        {
-                          "class": "V",
-                          "value": "roeu",
-                          "children": null
-                        },
-                        {
-                          "class": "DP",
-                          "value": "",
-                          "children": [
-                            {
-                              "class": "D",
-                              "value": "a",
-                              "children": null
-                            },
-                            {
-                              "class": "NP",
-                              "value": "",
-                              "children": [
-                                {
-                                  "class": "Nl",
-                                  "value": "",
-                                  "children": [
-                                    {
-                                      "class": "N",
-                                      "value": "roupa",
-                                      "children": null
-                                    },
-                                    {
-                                      "class": "Nll",
-                                      "value": "",
-                                      "children": null
-                                    }
-                                  ]
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
+    constructor(props){
+        super(props)
+        this.state = {
+          sentence: '',
+          orgChart: {},
+          parsedSentence: [],
+          redirect: false,
+          error: {type: ""},
+          tokens: []
+        }
+    }
+  
+    parseSentence = (sentence) => {  
+      let requestOptions = {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          }
+      }
+      let url = `http://127.0.0.1:8800/parser/?sentence=${sentence}`
+      console.log(url)
+      fetch(url, requestOptions)
+          .then(response => response.json())
+          .then(data => {
+            if (data.type) {
+              console.log("DEU ERRO")
+              this.setState({error: data})
+              if (data.type !== 'critical'){
+                let orgChart = {"class":"Resultados", "value": "", "children": data.detail.lasttree}
+                this.setState({orgChart:orgChart})
+                console.log('Erro não critico, alterar a arvore: ', data.detail.lasttree)
+                data.detail.lasttokens.pop()
+                this.setState({tokens: data.detail.lasttokens})
+              }
+              
+              this.setState({redirect: true})
+              return
             }
-          ]
-        };
-        const width = Math.max( window.innerWidth, document.body.clientWidth );
-        const height = Math.max( window.innerHeight, document.body.clientHeight );
+            console.log("SUCESSO")
+            this.setState({error: {type: ""}})
+
+            data.tokens.pop()
+            this.setState({tokens: data.tokens})
+            console.log("PARSED SENTENCE: ", this.state.tokens)
+            this.setState({orgChart: data.tree})
+            this.setState({redirect: true})
+            console.log('Arvore nova: ', data)
+            
+          })
+    }
+  
+    render(){
         return (
             <Router>
               <Switch>
                 <div>
                   <div>
-                    <Route exact path="/" component={Search}/>
+                    <Route exact path="/" component={(props) => (<Search parseSentence={this.parseSentence} redirect={this.state.redirect}/>)}/>
+                    <Route exact path="/home" component={(props) => (<Search parseSentence={this.parseSentence} redirect={this.state.redirect}/>)}/>
                     <Route exact path="/sobre" component={Sobre}/>
-                    {/* <div className="z-index-1 mt-5 p-3 rounded opacity-25 bg-secondary position-absolute" style={{height:"250px", width:width/8}}>
-                        <h9 className="ms-1 text-light">Sobre o projeto</h9>
-
-                      </div> */}
-                    <Route path="/search" component={Graph}/>        
-
-                  </div >        
+                    <Route path="/search" component={(props) => (<View orgChart={this.state.orgChart} error={this.state.error} tokens={this.state.tokens} parseSentence={this.parseSentence}/>)}/>
+                  </div>
                 </div>
               </Switch>
             </Router>

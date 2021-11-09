@@ -1,6 +1,5 @@
 
 import React, { Component } from 'react'
-import { Threedotjs, Github, Githubsponsors } from '@icons-pack/react-simple-icons';
 import Header from './header'
 
 export class Sobre extends Component {
