@@ -1,5 +1,5 @@
 import React from 'react';
-import Word from './word'
+import Word from './Word'
 
 const Sentence = (props) => {
     const showSentence = (tokens) => {

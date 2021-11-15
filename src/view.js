@@ -1,13 +1,13 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Redirect } from "react-router-dom";
-import Header from './header'
+import Header from './Header'
 import Sentence from './sentence'
-import Log from './error'
-import Definitions from './definitions'
-import Graph from './graph'
+import Log from './Error'
+import Definitions from './Definitions'
+import Graph from './Graph'
 import { AiOutlineInfoCircle } from 'react-icons/ai';
-import Loading  from './loading'
+import Loading  from './Loading'
 
 
 class View extends React.Component {

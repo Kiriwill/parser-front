@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Search from './search';
-import Sobre from './sobre'
-import View from './view'
+import Search from './Search';
+import Sobre from './Sobre'
+import View from './View'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class App extends React.Component {

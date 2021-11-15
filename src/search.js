@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect } from "react-router-dom";
 import { Threedotjs, Github  } from '@icons-pack/react-simple-icons';
-import Loading  from './loading'
+import Loading  from './Loading'
 
 export class Search extends React.Component {
     constructor(props){
