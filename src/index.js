@@ -12,11 +12,19 @@ class App extends React.Component {
         this.state = {
           sentence: '',
           orgChart: {},
-          parsedSentence: [],
           redirect: false,
           error: {type: ""},
           tokens: []
         }
+    }
+
+    componentDidMount(){
+      this.setState({
+        orgChart:{},
+        redirect:false,
+        error: {type: ""},
+        tokens: []
+      })
     }
   
     parseSentence = (sentence) => {  
@@ -26,7 +34,7 @@ class App extends React.Component {
               'Content-Type': 'application/json',
           }
       }
-      let url = `http://127.0.0.1:8800/parser/?sentence=${sentence}`
+      let url = `https://parserapiv1.herokuapp.com/parser/?sentence=${sentence}`
       console.log(url)
       fetch(url, requestOptions)
           .then(response => response.json())

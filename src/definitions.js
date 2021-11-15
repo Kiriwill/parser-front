@@ -7,23 +7,23 @@ const definitions = (props) => {
                 <h5 className="card-title mt-2">Definições</h5>
                 <dl>
                 <dt> (SD): Sintagma Determinante</dt>
-                        <dd className="text-muted">Artigos, Pronomes Demonstrativos, Pronomes Pessoais</dd>
+                        <dd className="text-muted">D: Artigos, Pronomes Demonstrativos, Pronomes Pessoais</dd>
                     <dt>(SN) Sintagma Nominal </dt>
-                        <dd className="text-muted">Substantivos</dd>
+                        <dd className="text-muted">N: Substantivos</dd>
                     <dt> (SP): Sintagma Preposicional</dt>
-                        <dd className="text-muted">Preposições</dd>
+                        <dd className="text-muted">P: Preposições</dd>
                     <dt> (SNum): Sintagma Numeral</dt>
-                        <dd className="text-muted">Pronomes Numerais</dd>
+                        <dd className="text-muted">Num: Pronomes Numerais</dd>
                     <dt> (SQ): Sintagma Quantificador</dt>
-                        <dd className="text-muted">Pronomes Indefinidos</dd>
+                        <dd className="text-muted">Q: Pronomes Indefinidos</dd>
                     <dt> (SA): Sintagma Adjetival</dt>
-                        <dd className="text-muted">Adjetivos</dd>
+                        <dd className="text-muted">A: Adjetivos</dd>
                     <dt> (SAdv): Sintagma Adverbial</dt>
-                        <dd className="text-muted">Adverbos</dd>
+                        <dd className="text-muted">ADV: Adverbos</dd>
                     <dt> (SV): Sintagma Verbal</dt>
-                        <dd className="text-muted">Verbos</dd>
+                        <dd className="text-muted">V: Verbos</dd>
                     <dt> (SPoss): Sintagma Possesivo</dt>
-                        <dd className="text-muted">Pronomes Possessivos</dd>
+                        <dd className="text-muted">Poss: Pronomes Possessivos</dd>
                 </dl>
             </div>
         </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { Redirect } from "react-router-dom";
 import Header from './header'
 import Sentence from './sentence'
 import Log from './error'
@@ -411,8 +412,8 @@ class View extends React.Component {
         return (
             <div>
                 {this.state.loading?  <Loading size={"w-100 h-25 fixed-bottom"}/> : null}
-               
-                {/* {!(this.props.error.type && this.props.orgChart.class)? <Redirect to={{pathname:"/"}}/> : null} */}
+                {!(this.props.orgChart.class || this.props.tokens.length > 0) ? <Redirect to={{pathname:"/"}}/> : null}
+
                 <Header showLoading={this.showLoading} parseSentence={this.props.parseSentence}/> 
                 <Definitions width={width} hidden={this.state.hidden}/>
                 {this.state.hidden? 
@@ -424,7 +425,7 @@ class View extends React.Component {
                             <AiOutlineInfoCircle size={50} onClick={() => {this.setInfo()}} style={{cursor:"pointer"}}/>
                         </div>
                     </div>: null}
-                {this.state.showSentence && this.props.error.type !== 'critical' ? 
+                {this.state.showSentence && this.props.error.type !== 'critical' && this.props.tokens.length > 0? 
                     <Sentence 
                         setInfo={this.setInfo} width={width} 
                         height={height} tokens={this.props.tokens}/> 

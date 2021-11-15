@@ -74,7 +74,7 @@ export class Search extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <div className="row border-bottom m-2" style={{height: 300}}>
+                    <div className="row border-bottom m-2" style={{height: 330}}>
                         <div className="d-flex align-items-end fs-6 fw-lighter text-muted justify-content-center">
                             Parse.ro - Nenhum direito reservado.
                         </div>
