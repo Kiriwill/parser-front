@@ -42,7 +42,7 @@ export class Header extends Component {
                         <a 
                             className="d-flex justify-content-center align-items-center"
                             style={{textDecoration: "none"}}
-                            href="http://localhost:3000/search">
+                            href="https://parserov1.herokuapp.com/search">
                             <Threedotjs size={35} className="text-muted"/>
                                 <h4 className="ms-2 text-muted pt-2 display-6" >Parse.ro!</h4>
                         </a>
@@ -68,7 +68,6 @@ export class Header extends Component {
                     </div>
                     <div className="col-3 mt-2">
                         <div className="d-flex text-secondary align-items-center justify-content-end">
-                            {/* <AiOutlineInfoCircle size={50} className="me-3"/> */}
                             <a 
                                 href="https://github.com/Kiriwill/parser-api"
                                 style={{color:"#6c757d"}}><Github size={45} /></a>
