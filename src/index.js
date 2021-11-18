@@ -72,6 +72,7 @@ class App extends React.Component {
               <Switch>
                 <div>
                   <div>
+                    <Route exact path="" component={(props) => (<Search parseSentence={this.parseSentence} redirect={this.state.redirect}/>)}/>
                     <Route exact path="/" component={(props) => (<Search parseSentence={this.parseSentence} redirect={this.state.redirect}/>)}/>
                     <Route exact path="/home" component={(props) => (<Search parseSentence={this.parseSentence} redirect={this.state.redirect}/>)}/>
                     <Route exact path="/sobre" component={Sobre}/>
