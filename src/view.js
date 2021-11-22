@@ -2,7 +2,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Redirect } from "react-router-dom";
 import Header from './Header'
-import Sentence from './sentence'
+import Sentence from './Sentence'
 import Log from './Error'
 import Definitions from './Definitions'
 import Graph from './Graph'
@@ -366,8 +366,8 @@ class View extends React.Component {
 
     renderRectSvgNode = ({ nodeDatum, toggleNode }) => (
         <g onClick={toggleNode}>
-          <rect width={nodeDatum.value.length  ? 0 : "100"} rx="0.4%" strokeWidth="0.2" height="40" x={nodeDatum.value.length > 7 ? -(nodeDatum.value.length*11)*0.54 : -100/2}  fill="white"/>
-          <text fill="grey" strokeWidth={nodeDatum.value ? "1.3" : "0.5"} x={nodeDatum.value.length > 2 ? -(nodeDatum.value.length*10)*0.50 : -100*0.06} y="25">
+          <rect width={nodeDatum.value.length  ? 0 : "130"} rx="0.4%" strokeWidth="1" height="60" x={nodeDatum.value.length > 7 ? -(nodeDatum.value.length*11)*0.54 : -133/2}  fill="white"/>
+          <text fill="grey" strokeWidth={nodeDatum.value ? "1.3" : "0.8"} x={nodeDatum.value.length > 2 ? -(nodeDatum.value.length*10)*0.50 : -155*0.06} y="37">
             {nodeDatum.value ? `${nodeDatum.value.toUpperCase()} (${nodeDatum.class})` : nodeDatum.class}
           </text>
           {/* {nodeDatum.attributes?.department && (
@@ -398,7 +398,7 @@ class View extends React.Component {
 
         let graphComp = (
             <Graph 
-                width={width} height={height} 
+                width={width} height={height+100} 
                 orgChart={this.props.orgChart}
                 renderRectSvgNode={this.renderRectSvgNode}/>
             )
@@ -414,7 +414,7 @@ class View extends React.Component {
                 {this.state.loading?  <Loading size={"w-100 h-25 fixed-bottom"}/> : null}
                 {!(this.props.orgChart.class || this.props.tokens.length > 0) ? <Redirect to={{pathname:"/"}}/> : null}
 
-                <Header showLoading={this.showLoading} parseSentence={this.props.parseSentence}/> 
+                {/* <Header showLoading={this.showLoading} parseSentence={this.props.parseSentence}/>  */}
                 <Definitions width={width} hidden={this.state.hidden}/>
                 {this.state.hidden? 
                     <Log width={width} height={height} error={this.props.error} showSentence={this.showSentence}/> 
