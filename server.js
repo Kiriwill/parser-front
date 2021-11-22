@@ -10,6 +10,14 @@ app.use('/',
         )
     )
 )
+app.use('/search', 
+    express.static(
+        resolve(
+            __dirname,
+            './build'
+        )
+    )
+)
 
 app.listen(process.env.PORT || 3000, (err) => {
     if (err){
