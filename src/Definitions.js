@@ -2,11 +2,11 @@ import React from 'react'
 
 const definitions = (props) => {
     return (
-        <div hidden={props.hidden} className="card opacity-75 m-4 position-absolute" style={{height:"600px", width:props.width/5.5}}>
-            <div class="card-body">
+        <div hidden={props.hidden} className="card opacity-75 m-4 position-absolute" style={{height:"600px", width:props.width/4}}>
+            <div class="card-body" style={{fontSize:"1rem"}}>
                 <h5 className="card-title mt-2">Definições</h5>
                 <dl>
-                <dt> (SD): Sintagma Determinante</dt>
+                <dt > (SD): Sintagma Determinante</dt>
                         <dd className="text-muted">D: Artigos, Pronomes Demonstrativos, Pronomes Pessoais</dd>
                     <dt>(SN) Sintagma Nominal </dt>
                         <dd className="text-muted">N: Substantivos</dd>

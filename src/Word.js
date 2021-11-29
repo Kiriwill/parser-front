@@ -6,7 +6,7 @@ const word = (props) => {
             <div  draggable="true" placement="bottom" dataToggle="popover" style={{cursor:"pointer"}}>
                 {props.word}
             </div>
-            <div className="display-6">
+            <div className="display-7">
                 {Array.isArray(props.classe)? `(${props.classe})` : "Ø"}
             </div>
         </span>

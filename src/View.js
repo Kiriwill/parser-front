@@ -420,8 +420,8 @@ class View extends React.Component {
                     <Log width={width} height={height} error={this.props.error} showSentence={this.showSentence}/> 
                     : null}
                 {this.props.error.type !== 'critical'? 
-                    <div className="d-flex p-4 m-5 justify-content-end align-items-start fixed-bottom z-index-3">
-                        <div className="form-check-lg form-switch text-muted">
+                    <div className="d-flex p-3 m-3 justify-content-end align-items-start fixed-bottom z-index-3">
+                        <div className="form-check-md form-switch text-muted">
                             <AiOutlineInfoCircle size={50} onClick={() => {this.setInfo()}} style={{cursor:"pointer"}}/>
                         </div>
                     </div>: null}

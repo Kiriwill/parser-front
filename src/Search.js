@@ -1,6 +1,8 @@
 import React from 'react';
 import { Redirect } from "react-router-dom";
 import { Threedotjs, Github  } from '@icons-pack/react-simple-icons';
+import { HiSearchCircle } from 'react-icons/hi';
+
 import Loading  from './Loading'
 
 export class Search extends React.Component {
@@ -24,6 +26,9 @@ export class Search extends React.Component {
             this.setState({
                 loading:true
             })
+        }
+        else {
+            alert("Digite algo para ser analisado.");
         }
     }
 
@@ -51,34 +56,41 @@ export class Search extends React.Component {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="d-flex justify-content-center pt-5 mt-5"> 
-                            <Threedotjs size={150}/>
+                        <div className="border d-flex justify-content-center pt-2 mt-4"
+                            style={{backgroundColor:"#f3f3f3"}}> 
+                            <img src="twitter_header_photo_2.png" width="800"></img>
                         </div>
-                        <div className="mt-5 w-100">
-                            <div className="d-flex justify-content-center m-4 ">
+                        <div className="d-flex justify-content-center pt-2 mt-3">
+                            <div class="w-50" >
                                 <input 
                                     type="text" 
-                                    className="form-control w-50 p-3 ps-4 rounded-6" 
+                                    className="form-control" 
                                     onChange={this.setsearch}
                                     ref={e => (this.searchInput = e)}
-                                    placeholder="Digite uma frase para encontrar suas classes gramaticais"
+                                    placeholder="Exemplo: o homem caiu na casa de maria"
                                     onKeyDown={this.setkeydown}
-                                    maxLength={90}
+                                    maxLength={40}
                                     required
                                 ></input>
-                                    <button type="button" onClick={ () => 
-                                        this.setRedirect()}
-                                        className="btn btn-outline-secondary btn-lg ms-3">
-                                            Analisar!
-                                    </button>
                             </div>
-                        </div>
+                        </div >
+                            <div className="d-flex justify-content-center pt-2 mt-2">
+                                <button type="button" onClick={ () => 
+                                    this.setRedirect()}
+                                    className="btn btn-outline-secondary btn-md">
+                                    <span className="pe-2" style={{backgroundColor:"none", border:"none"}}>
+                                        <HiSearchCircle size="35"></HiSearchCircle>
+                                    </span>
+                                    Analisar
+
+                                </button>
+                            </div>
                     </div>
-                    <div className="row border-bottom m-2" style={{height: 330}}>
+                    {/* <div className="row border-bottom m-2" style={{height: 100}}>
                         <div className="d-flex align-items-end fs-6 fw-lighter text-muted justify-content-center">
                             Parse.ro - Nenhum direito reservado.
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             
