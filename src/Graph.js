@@ -11,7 +11,6 @@ const Graph = (props) => {
             <Tree 
                 data={props.orgChart}
                 translate={{ x: props.width/2, y: (props.height/2)*0.4 }}
-                onNodeClick={(x) => console.log(x)}
                 orientation="vertical"
                 renderCustomNodeElement={(x, y) => props.renderRectSvgNode(x,y)}>
             </Tree>
