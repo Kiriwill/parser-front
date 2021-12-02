@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
-import { Threedotjs, Github } from '@icons-pack/react-simple-icons';
-import { Link } from 'react-router-dom';
+import { Github } from '@icons-pack/react-simple-icons';
+
 
 
 export class Header extends Component {

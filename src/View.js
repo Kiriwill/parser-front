@@ -412,8 +412,8 @@ class View extends React.Component {
         return (
             <div>
                 {this.state.loading?  <Loading size={"w-100 h-25 fixed-bottom"}/> : null}
-                {!(this.props.orgChart.class || this.props.tokens.length > 0) ? <Redirect to={{pathname:"/"}}/> : null}
-
+                {!(this.props.orgChart.class || this.props.tokens.length > 0)? 
+                    <Redirect to={{pathname:"/"}}/>: null}
                 <Header showLoading={this.showLoading} parseSentence={this.props.parseSentence}/> 
                 <Definitions width={width} hidden={this.state.hidden}/>
                 {this.state.hidden? 

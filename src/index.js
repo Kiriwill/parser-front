@@ -20,6 +20,7 @@ class App extends React.Component {
 
     componentDidMount(){
       this.setState({
+        sentence: '',
         orgChart:{},
         redirect:false,
         error: {type: ""},
@@ -35,33 +36,31 @@ class App extends React.Component {
           }
       }
       let url = `https://parserapiv1.herokuapp.com/parser/?sentence=${sentence}`
-      console.log(url)
+      //console.log(url)
       fetch(url, requestOptions)
           .then(response => response.json())
           .then(data => {
             if (data.type) {
-              console.log("DEU ERRO")
+              //console.log("DEU ERRO")
               this.setState({error: data})
+              let orgChart = {"class":"Resultados", "value": "", "children": data.detail.lasttree}
+              this.setState({orgChart:orgChart})
+              
               if (data.type !== 'critical'){
-                let orgChart = {"class":"Resultados", "value": "", "children": data.detail.lasttree}
-                this.setState({orgChart:orgChart})
-                console.log('Erro não critico, alterar a arvore: ', data.detail.lasttree)
                 data.detail.lasttokens.pop()
                 this.setState({tokens: data.detail.lasttokens})
               }
-              
               this.setState({redirect: true})
               return
             }
-            console.log("SUCESSO")
+            //console.log("SUCESSO")
             this.setState({error: {type: ""}})
-
             data.tokens.pop()
             this.setState({tokens: data.tokens})
-            console.log("PARSED SENTENCE: ", this.state.tokens)
+            //console.log("PARSED SENTENCE: ", this.state.tokens)
             this.setState({orgChart: data.tree})
             this.setState({redirect: true})
-            console.log('Arvore nova: ', data)
+            //console.log('Arvore nova: ', data)
             
           })
     }

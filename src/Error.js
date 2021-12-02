@@ -2,7 +2,7 @@ import React from 'react';
 import { FaRegSadCry } from 'react-icons/fa';
 
 
-const defaultError = "Houve um erro interno, tente novamente mais tarde."
+// const defaultError = "Houve um erro interno, tente novamente mais tarde."
 const propositions = (
     <span>
         <ul style={{listStyleType:"none"}}>
@@ -35,7 +35,8 @@ const Error = (props) => {
         </span>
     )
 
-    let renderCriticalLexicalError = () => (
+    let renderCriticalLexicalError = () => {
+        return (
         <div className="d-flex align-items-center justify-content-center" 
             style={{ width: props.width, height: props.height/1.15 }}>
             <blockquote className="blockquote text-center">
@@ -44,12 +45,11 @@ const Error = (props) => {
                 </header>
                 <p className="m-4 mt-0 display-5"> Ops... não consegui entender.</p>
                 <footer className="blockquote-footer">{
-                    props.error.type === "critical"? HandleLexicalError(props.error, "#dc3535") :
-                    defaultError}
+                    HandleLexicalError(props.error, "#dc3535")}
                 </footer>
             </blockquote>
         </div>
-    )
+    )}
 
 
     let renderLexicalError = () => (
@@ -105,7 +105,7 @@ const Error = (props) => {
 
     switch (props.error.type) {
         case "critical":
-            console.log('RENDERIZOU O CRITICAL')
+            //console.log('RENDERIZOU O CRITICAL')
             return renderCriticalLexicalError()
         case "lexical":
             return renderLexicalError()

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect } from "react-router-dom";
-import { Threedotjs, Github  } from '@icons-pack/react-simple-icons';
+import { Github  } from '@icons-pack/react-simple-icons';
 import { HiSearchCircle } from 'react-icons/hi';
 
 import Loading  from './Loading'
