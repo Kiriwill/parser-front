@@ -15,9 +15,15 @@ export class Header extends Component {
     componentDidMount(){
         this.searchInput.focus();
     }
+
     setRedirect = () => {
-        this.props.parseSentence(this.state.search);    
-        this.props.showLoading()
+        if (this.state.search.length > 0) {
+            this.props.parseSentence(this.state.search);    
+            this.props.showLoading()
+        }
+        else {
+            alert("Digite algo para ser analisado.");
+        }
     }
 
     setkeydown = (event) => {

@@ -6,7 +6,7 @@ const Graph = (props) => {
         <div 
             hidden={props.hidden}
             id="treeWrapper" 
-            style={{ width: props.width, height: props.height-100 }} 
+            style={{ width: props.width, height: "800px" }} 
             className="z-index-0">
             <Tree 
                 data={props.orgChart}

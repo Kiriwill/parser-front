@@ -85,7 +85,7 @@ const Error = (props) => {
     let defaultShow = (
         <div className="d-flex align-items-center justify-content-center position-absolute w-100">
             <div className="d-flex align-items-center opacity-75 bg-white justify-content-center border mt-4" 
-                        style={{ width: props.width, height: props.height/14 }}>
+                        style={{ width: props.width, height: "50px" }}>
                             <div>
                                 <strong style={{color:"#1a0dab"}}>
                                     Encontrei! </strong>Navegue na tela abaixo para ver os resultados ou mude a visualização 

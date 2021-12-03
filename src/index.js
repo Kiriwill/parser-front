@@ -43,7 +43,7 @@ class App extends React.Component {
             if (data.type) {
               //console.log("DEU ERRO")
               this.setState({error: data})
-              let orgChart = {"class":"Resultados", "value": "", "children": data.detail.lasttree}
+              let orgChart = {"class":"Redirect", "value": "", "children": data.detail.lasttree}
               this.setState({orgChart:orgChart})
               
               if (data.type !== 'critical'){

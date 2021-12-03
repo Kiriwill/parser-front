@@ -11,7 +11,7 @@ const Sentence = (props) => {
 
     return (
         <div className="d-flex align-items-center justify-content-center" 
-            style={{ width: props.width, height: props.height/1.2 }}>
+            style={{ width: props.width, height: "500px" }}>
             <blockquote className=" blockquote text-center">
                 <p className="d-flex m-4 mt-0 display-6">
                    {showSentence(props.tokens)}
