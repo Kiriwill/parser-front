@@ -16,7 +16,7 @@ const Sentence = (props) => {
                 <p className="d-flex m-4 mt-0 display-6">
                    {showSentence(props.tokens)}
                 </p>
-                <footer className="mt-3 blockquote-footer">Para ver as definições use o icone abaixo.</footer>
+                <footer className="mt-3 blockquote-footer">Para ver as definições use o ícone abaixo.</footer>
             </blockquote>
         </div>
     )
