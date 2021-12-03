@@ -8,7 +8,7 @@ const propositions = (
         <ul style={{listStyleType:"none"}}>
             <li> Veja se todas as palavras estão escritas corretamente, </li> 
             <li> retire as palavras não encontradas e tente sem elas,</li> 
-            <li> <strong>ou</strong> substitua as palavras não encontradas por sinonimos.</li> 
+            <li> <strong>ou</strong> substitua as palavras não encontradas por sinônimos.</li> 
         </ul>
         <p/>
     </span>)

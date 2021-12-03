@@ -2,7 +2,7 @@ import React from 'react'
 
 const definitions = (props) => {
     return (
-        <div hidden={props.hidden} className="card opacity-75 m-4 position-absolute" style={{height:"600px", width:props.width/4}}>
+        <div hidden={props.hidden} className="card opacity-75 m-4 position-absolute" style={{height:"700px", width:props.width/4}}>
             <div class="card-body" style={{fontSize:"1rem"}}>
                 <h5 className="card-title mt-2">Definições</h5>
                 <dl>
